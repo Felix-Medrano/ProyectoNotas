@@ -31,6 +31,8 @@ Partial Class Notas
         Me.btnCancelar = New System.Windows.Forms.PictureBox()
         Me.btnAbrirMenu = New System.Windows.Forms.PictureBox()
         Me.btnCerrarMenu = New System.Windows.Forms.PictureBox()
+        Me.Titulo = New System.Windows.Forms.Label()
+        Me.Desc = New System.Windows.Forms.Label()
         CType(Me.imgClip, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Menu.SuspendLayout()
         CType(Me.btnEliminar, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -126,11 +128,33 @@ Partial Class Notas
         Me.btnCerrarMenu.TabStop = False
         Me.btnCerrarMenu.Visible = False
         '
+        'Titulo
+        '
+        Me.Titulo.AutoSize = True
+        Me.Titulo.Location = New System.Drawing.Point(95, 5)
+        Me.Titulo.Name = "Titulo"
+        Me.Titulo.Size = New System.Drawing.Size(41, 15)
+        Me.Titulo.TabIndex = 7
+        Me.Titulo.Text = "Label1"
+        Me.Titulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Desc
+        '
+        Me.Desc.AutoSize = True
+        Me.Desc.Location = New System.Drawing.Point(0, 43)
+        Me.Desc.Name = "Desc"
+        Me.Desc.Size = New System.Drawing.Size(41, 15)
+        Me.Desc.TabIndex = 8
+        Me.Desc.Text = "Label2"
+        Me.Desc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'Notas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(250, 350)
+        Me.Controls.Add(Me.Desc)
+        Me.Controls.Add(Me.Titulo)
         Me.Controls.Add(Me.btnCerrarMenu)
         Me.Controls.Add(Me.btnAbrirMenu)
         Me.Controls.Add(Me.Menu)
@@ -147,6 +171,7 @@ Partial Class Notas
         CType(Me.btnAbrirMenu, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnCerrarMenu, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -158,4 +183,6 @@ Partial Class Notas
     Friend WithEvents btnCancelar As PictureBox
     Friend WithEvents btnAbrirMenu As PictureBox
     Friend WithEvents btnCerrarMenu As PictureBox
+    Friend WithEvents Titulo As Label
+    Friend WithEvents Desc As Label
 End Class

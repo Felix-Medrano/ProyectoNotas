@@ -25,6 +25,19 @@
         Me.Height = 350
     End Sub
 
+    Sub _Minimizar()
+        If notasMinimizado Then
+            ultimaX = Me.Left
+            Me.Size = imgClip.Size
+            Me.Left = 0
+            _CerrarMenu()
+            btnAbrirMenu.Visible = False
+        Else
+            Me.Size = New Point(250, 250)
+            Me.Left = ultimaX
+            btnAbrirMenu.Visible = True
+        End If
+    End Sub
 
 
 
@@ -50,17 +63,7 @@
 
     Private Sub imgClip_DoubleClick(sender As Object, e As EventArgs) Handles imgClip.DoubleClick
         notasMinimizado = Not notasMinimizado
-        If notasMinimizado Then
-            ultimaX = Me.Left
-            Me.Size = imgClip.Size
-            Me.Left = 0
-            _CerrarMenu()
-            btnAbrirMenu.Visible = False
-        Else
-            Me.Size = New Point(250, 250)
-            Me.Left = ultimaX
-            btnAbrirMenu.Visible = True
-        End If
+        _Minimizar()
     End Sub
 
     Private Sub imgClip_MouseHover(sender As Object, e As EventArgs) Handles imgClip.MouseHover
@@ -102,5 +105,14 @@
     Private Sub Notas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Height = 250
         Menu.Visible = False
+    End Sub
+
+    Private Sub Notas_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If e.KeyCode = Keys.Escape Then
+            If notasMinimizado = False Then
+                notasMinimizado = Not notasMinimizado
+                _Minimizar()
+            End If
+        End If
     End Sub
 End Class
